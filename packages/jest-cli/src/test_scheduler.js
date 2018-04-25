@@ -24,7 +24,7 @@ import DefaultReporter from './reporters/default_reporter';
 import exit from 'exit';
 import NotifyReporter from './reporters/notify_reporter';
 import ReporterDispatcher from './reporter_dispatcher';
-import snapshot from 'jest-snapshot';
+import Snapshot from 'jest-snapshot';
 import SummaryReporter from './reporters/summary_reporter';
 import TestRunner from 'jest-runner';
 import TestWatcher from './test_watcher';
@@ -148,7 +148,7 @@ export default class TestScheduler {
 
     const updateSnapshotState = () => {
       contexts.forEach(context => {
-        const status = snapshot.cleanup(
+        const status = Snapshot.cleanup(
           context.hasteFS,
           this._globalConfig.updateSnapshot,
         );

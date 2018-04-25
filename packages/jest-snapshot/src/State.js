@@ -41,7 +41,8 @@ export default class SnapshotState {
   updated: number;
 
   constructor(testPath: Path, options: SnapshotStateOptions) {
-    this._snapshotPath = options.snapshotPath || getSnapshotPath(testPath);
+    this._snapshotPath =
+      options.snapshotPath || getSnapshotPath(testPath, options.snapshotTag);
     const {data, dirty} = getSnapshotData(
       this._snapshotPath,
       options.updateSnapshot,

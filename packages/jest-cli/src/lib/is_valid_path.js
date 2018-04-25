@@ -8,7 +8,7 @@
  */
 
 import type {GlobalConfig, ProjectConfig} from 'types/Config';
-import Snapshot from 'jest-snapshot';
+import {utils} from 'jest-snapshot';
 
 export default function isValidPath(
   globalConfig: GlobalConfig,
@@ -18,6 +18,10 @@ export default function isValidPath(
   return (
     !filePath.includes(globalConfig.coverageDirectory) &&
     !config.watchPathIgnorePatterns.some(pattern => filePath.match(pattern)) &&
-    !filePath.endsWith(`.${Snapshot.EXTENSION}`)
+    !filePath.endsWith(
+      utils.getSnapshotExtension(
+        config.snapshotTag || globalConfig.snapshotTag || '',
+      ),
+    )
   );
 }

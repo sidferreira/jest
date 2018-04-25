@@ -500,16 +500,16 @@ export const options = {
     description: 'Prevent tests from printing messages through the console.',
     type: 'boolean',
   },
-  snapshotPath: {
-    description:
-      "An alternative path that is used as a base for Jest's snapshots.",
-    type: 'string',
-  },
   snapshotSerializers: {
     description:
       'A list of paths to snapshot serializer modules Jest should ' +
       'use for snapshot testing.',
     type: 'array',
+  },
+  snapshotTag: {
+    description:
+      'Adds a tag to the snapshot extension. Useful for many platforms.',
+    type: 'string',
   },
   testEnvironment: {
     description: 'Alias for --env',
